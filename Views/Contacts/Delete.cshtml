@@ -1,0 +1,69 @@
+﻿@model ContactManager.Models.Contact
+
+@{
+    ViewData["Title"] = "Supprimer le contact";
+}
+
+<h1 class="mt-4 text-danger">Supprimer le contact</h1>
+
+@* Message d'avertissement visuel *@
+<div class="alert alert-danger shadow-sm d-flex align-items-center" role="alert">
+    <i class="bi bi-exclamation-triangle-fill fs-3 me-3"></i>
+    <div>
+        <strong>Attention !</strong> Cette action est irréversible. Êtes-vous certain de vouloir supprimer ce contact ?
+    </div>
+</div>
+
+<div class="card shadow-sm border-danger mt-4">
+    <div class="card-header bg-danger text-white">
+        <h4 class="mb-0">Fiche de confirmation : @Model.FirstName @Model.LastName</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <dl class="row mb-0">
+                    <dt class="col-sm-5 text-muted">Nom complet</dt>
+                    <dd class="col-sm-7 fw-bold">@Model.FirstName @Model.LastName</dd>
+
+                    <dt class="col-sm-5 text-muted">Téléphone</dt>
+                    <dd class="col-sm-7">@Model.Phone</dd>
+
+                    <dt class="col-sm-5 text-muted">Courriel</dt>
+                    <dd class="col-sm-7 text-truncate">@Model.Email</dd>
+                </dl>
+            </div>
+            <div class="col-md-6 border-start">
+                <dl class="row mb-0">
+                    <dt class="col-sm-5 text-muted">Catégorie</dt>
+                    <dd class="col-sm-7">
+                        <span class="badge bg-dark text-white">
+                            @(Model.Category?.Name ?? "Aucune")
+                        </span>
+                    </dd>
+
+                    <dt class="col-sm-5 text-muted">Ville</dt>
+                    <dd class="col-sm-7">@Model.City</dd>
+
+                    <dt class="col-sm-5 text-muted small">Date d'ajout</dt>
+                    <dd class="col-sm-7 small">@Model.DateAdded.ToString("dd/MM/yyyy")</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer bg-light">
+        <div class="d-flex justify-content-between align-items-center">
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Annuler et retourner
+            </a>
+
+            <form asp-action="Delete">
+                @* Très important pour le contrôleur *@
+                <input type="hidden" asp-for="ContactId" />
+
+                <button type="submit" class="btn btn-danger shadow-sm px-4">
+                    <i class="bi bi-trash-fill"></i> Supprimer définitivement
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,214 @@
+/* --- 1. CONFIGURATION GLOBALE --- */
+html {
+    font-size: 14px;
+    min-height: 100%;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* EFFET DE FOCUS (CONSERVÉ) */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb !important;
+    outline: none;
+}
+
+/* --- 2. ARRIÈRE-PLAN DYNAMIQUE --- */
+body {
+    margin-bottom: 60px;
+    background: radial-gradient(circle at top right, #1e3a8a, #0f172a 50%, #020617 100%);
+    background-attachment: fixed;
+    color: #f8fafc;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* --- 3. BARRE DE NAVIGATION (AVEC EFFETS RÉACTIVÉS) --- */
+.navbar {
+    background: rgba(15, 23, 42, 0.8) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 800;
+    color: #3b82f6 !important;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease;
+}
+
+    .nav-link:hover {
+        color: #3b82f6 !important;
+        transform: translateY(-2px);
+        text-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+    }
+
+/* --- 4. FORMULAIRES ET RECHERCHE --- */
+.form-control, .form-select {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: 8px;
+}
+
+    .form-control::placeholder {
+        color: #3b82f6 !important;
+        opacity: 0.8;
+    }
+
+select option {
+    background-color: #16213e !important;
+    color: white !important;
+}
+
+/* --- 5. BOUTONS ET TITRES SPÉCIFIQUES (TOUT EN BLEU) --- */
+
+/* Boutons d'action principaux (Nouveau, Créer, Sauvegarder) */
+.btn-primary, .btn-success, input[type="submit"] {
+    background-color: #2563eb !important;
+    border: none !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+    color: white !important;
+}
+
+/* Bouton "Réinitialiser" ou "Annuler" secondaire */
+.btn-outline-secondary, .btn-secondary {
+    border-color: #3b82f6 !important;
+    color: #3b82f6 !important;
+    background: rgba(59, 130, 246, 0.1) !important;
+}
+
+/* ÉDITER RESTE EN NOIR */
+.btn-warning {
+    background-color: #111827 !important;
+    border: 1px solid #374151 !important;
+    color: white !important;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+}
+
+/* FORCE LE TITRE "MISE À JOUR DES INFORMATIONS" EN BLEU */
+h4, .text-warning {
+    color: #3b82f6 !important;
+    text-shadow: none !important;
+}
+
+/* --- 6. EFFET GLASSMORPHISM (CARTES) --- */
+.card, .table-responsive, .alert, .bg-light {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 16px !important;
+    color: white !important;
+}
+
+/* --- 7. TABLEAUX ET CATÉGORIES --- */
+.table {
+    color: #e2e8f0 !important;
+}
+
+    .table thead th {
+        border-bottom: 2px solid #3b82f6;
+        color: #3b82f6 !important;
+    }
+
+/* CATÉGORIES SANS TICKET */
+.badge {
+    background: rgba(59, 130, 246, 0.2) !important;
+    color: #60a5fa !important;
+    border: 1px solid rgba(96, 165, 250, 0.3) !important;
+    padding: 6px 12px !important;
+    font-weight: 500 !important;
+    border-radius: 6px !important;
+}
+
+    .badge i, .bi-tag-fill {
+        display: none !important;
+    }
+
+/* --- 8. TITRES GÉNÉRAUX --- */
+h1, h2, h3, label, dt {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* --- 9. MODIFICATIONS UNIQUEMENT POUR LA PAGE DÉTAILS --- */
+
+/* Rend le bandeau de titre (will Dufrim) sombre pour que le texte blanc ressorte */
+.card-header.bg-info {
+    background: rgba(15, 23, 42, 0.9) !important;
+    border-bottom: 1px solid #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+/* Force tous les textes des détails (Téléphone, Courriel, Adresse, etc.) en BLANC */
+.card-body dt,
+.card-body dd,
+.card-body .text-muted,
+.card-body h6 {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Le bouton "Modifier" sur cette page passe en noir comme les autres */
+.card-body .btn-dark {
+    background-color: #111827 !important;
+    border: 1px solid #374151 !important;
+}
+
+/* Le bouton "Retour à la liste" reste en bleu */
+.card-body .btn-primary {
+    background-color: #2563eb !important;
+}
+
+/* --- 10. MODIFICATIONS UNIQUEMENT POUR LA PAGE SUPPRIMER --- */
+
+/* Change le titre "Supprimer le contact" (rouge) en BLANC */
+h1.text-danger {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Change le bandeau "Fiche de confirmation" (rouge) en BLEU SOMBRE */
+.card-header.bg-danger {
+    background: rgba(15, 23, 42, 0.9) !important;
+    border-bottom: 1px solid #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+/* BOUTON SUPPRIMER DÉFINITIVEMENT : Fond noir, seule la bordure est rouge */
+.btn-danger, input[value="Supprimer"] {
+    background-color: #111827 !important; /* Fond noir */
+    border: 2px solid #dc3545 !important; /* Bordure rouge */
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+    box-shadow: none !important;
+}
+
+    .btn-danger:hover {
+        background-color: #dc3545 !important; /* Devient rouge plein seulement au survol */
+        color: white !important;
+    }
+
+/* Correction des labels dans la page supprimer pour qu'ils soient BLANCS */
+.card-body dt, .card-body dd {
+    color: #ffffff !important;
+}
+
+/* Le bouton "Annuler et retourner" reste en BLEU */
+.btn-outline-primary, .btn-secondary {
+    border-color: #3b82f6 !important;
+    color: #3b82f6 !important;
+}

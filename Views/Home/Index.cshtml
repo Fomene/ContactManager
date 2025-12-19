@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Accueil";
+}
+
+<div class="text-center mt-5">
+    <h1 class="display-4">Bienvenue sur <strong>ContactManager</strong></h1>
+    <p class="lead">L'outil indispensable pour organiser vos relations personnelles et professionnelles.</p>
+
+    <div class="my-4">
+        <div class="bg-primary text-white d-inline-block rounded-circle p-4 mb-3">
+            <i class="bi bi-person-rolodex" style="font-size: 4rem;"></i>
+        </div>
+    </div>
+
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        @* --- CAS : UTILISATEUR CONNECTÉ --- *@
+        <div class="alert alert-success shadow-sm">
+            <h3>Bonjour !</h3>
+            <p>Vous êtes connecté. Que souhaitez-vous faire aujourd'hui ?</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a class="btn btn-success btn-lg" asp-controller="Contacts" asp-action="Index">
+                    <i class="bi bi-list-ul"></i> Voir mes contacts
+                </a>
+                <a class="btn btn-primary btn-lg" asp-controller="Contacts" asp-action="Create">
+                    <i class="bi bi-person-plus"></i> Ajouter un contact
+                </a>
+            </div>
+        </div>
+    }
+    else
+    {
+        @* --- CAS : UTILISATEUR NON CONNECTÉ (Public) --- *@
+        <div class="p-5 mb-4 bg-light rounded-3 border">
+            <div class="container-fluid py-5">
+                <h2 class="fw-bold">Notre Objectif</h2>
+                <p class="col-md-8 fs-4 mx-auto">Offrir une plateforme sécurisée pour stocker, classer par catégories et retrouver instantanément vos contacts.</p>
+                <hr class="my-4 w-25 mx-auto">
+                <p>Pour commencer à gérer vos contacts, veuillez vous connecter ou créer un compte.</p>
+                <a class="btn btn-primary btn-lg" asp-area="Identity" asp-page="/Account/Login">Se connecter</a>
+                <a class="btn btn-outline-primary btn-lg" asp-area="Identity" asp-page="/Account/Register">Créer un compte</a>
+            </div>
+        </div>
+    }
+</div>

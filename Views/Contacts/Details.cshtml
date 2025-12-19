@@ -1,0 +1,62 @@
+﻿@model ContactManager.Models.Contact
+
+@{
+    ViewData["Title"] = "Détails du contact";
+}
+
+<h1 class="mt-4">Détails du contact</h1>
+
+<div class="card shadow-sm border-info mt-4">
+    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+        <h4 class="mb-0"><i class="bi bi-person-badge"></i> @Model.FirstName @Model.LastName</h4>
+        <span class="badge rounded-pill bg-light text-dark">
+            <i class="bi bi-tag-fill"></i> @(Model.Category?.Name ?? "Non classé")
+        </span>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            @* Colonne de gauche : Coordonnées *@
+            <div class="col-md-6 border-end">
+                <h5 class="text-muted mb-3">Coordonnées</h5>
+                <dl class="row">
+                    <dt class="col-sm-4">Téléphone</dt>
+                    <dd class="col-sm-8 text-primary fw-bold">@Model.Phone</dd>
+
+                    <dt class="col-sm-4">Courriel</dt>
+                    <dd class="col-sm-8">@Model.Email</dd>
+
+                    <dt class="col-sm-4 text-muted small">Ajouté le</dt>
+                    <dd class="col-sm-8 text-muted small">@Model.DateAdded.ToString("dd MMMM yyyy")</dd>
+                </dl>
+            </div>
+
+            @* Colonne de droite : Adresse *@
+            <div class="col-md-6 ps-md-4">
+                <h5 class="text-muted mb-3">Localisation</h5>
+                <dl class="row">
+                    <dt class="col-sm-4">Adresse</dt>
+                    <dd class="col-sm-8">@Model.Address</dd>
+
+                    <dt class="col-sm-4">Ville</dt>
+                    <dd class="col-sm-8">@Model.City</dd>
+
+                    <dt class="col-sm-4">Province</dt>
+                    <dd class="col-sm-8">@Model.Province</dd>
+
+                    <dt class="col-sm-4">Code Postal</dt>
+                    <dd class="col-sm-8">@Model.PostalCode</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer bg-light">
+        <div class="d-flex gap-2">
+            <a asp-action="Edit" asp-route-id="@Model?.ContactId" class="btn btn-warning">
+                <i class="bi bi-pencil-square"></i> Modifier
+            </a>
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Retour à la liste
+            </a>
+        </div>
+    </div>
+</div>

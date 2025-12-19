@@ -1,0 +1,96 @@
+﻿@model ContactManager.Models.Contact
+
+@{
+    ViewData["Title"] = "Modifier le contact";
+}
+
+<h1 class="mt-4">Modifier le contact</h1>
+
+<div class="card shadow-sm border-warning">
+    <div class="card-body">
+        <h4 class="card-title text-warning">Mise à jour des informations</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-10">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    @* Champs cachés essentiels pour la base de données *@
+                    <input type="hidden" asp-for="ContactId" />
+                    <input type="hidden" asp-for="DateAdded" />
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label asp-for="FirstName" class="control-label">Prénom</label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="LastName" class="control-label">Nom</label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label asp-for="Phone" class="control-label">Téléphone</label>
+                            <input asp-for="Phone" class="form-control" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Email" class="control-label">Courriel</label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Address" class="control-label">Adresse</label>
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label asp-for="City" class="control-label">Ville</label>
+                            <input asp-for="City" class="form-control" />
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Province" class="control-label">Province</label>
+                            <input asp-for="Province" class="form-control" />
+                            <span asp-validation-for="Province" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="PostalCode" class="control-label">Code Postal</label>
+                            <input asp-for="PostalCode" class="form-control" />
+                            <span asp-validation-for="PostalCode" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label asp-for="CategoryId" class="control-label fw-bold">Catégorie</label>
+                        <select asp-for="CategoryId" class="form-select border-warning" asp-items="ViewBag.CategoryId">
+                            <option value="">-- Sélectionner --</option>
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-warning shadow-sm">
+                            Sauvegarder les modifications
+                        </button>
+                        <a asp-action="Index" class="btn btn-outline-secondary ms-2">Annuler</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
