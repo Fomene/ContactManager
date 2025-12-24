@@ -1,4 +1,4 @@
-# 📇 ContactManager - Modern Web Application
+# 📇 ContactManager - Gestionnaire de Contacts Intelligent
 
 ![.NET 9](https://img.shields.io/badge/.NET-9.0-blue.svg)
 ![Design](https://img.shields.io/badge/Design-Glassmorphism-purple.svg)
@@ -6,7 +6,6 @@
 
 Une application web élégante et performante de gestion de contacts développée avec **ASP.NET Core 9.0**. Ce projet combine la puissance du backend C# avec une interface utilisateur moderne basée sur les tendances du **Glassmorphism**.
 
-# 📇 ContactManager - Gestionnaire de Contacts Intelligent
 
 ## 🛠 Fonctionnalités Principales
 
