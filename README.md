@@ -50,6 +50,7 @@ Une application web élégante et performante de gestion de contacts développé
 
 ### Étapes
 1. **Cloner le projet**
+
 ```bash
    git clone [https://github.com/Fomene/ContactManager.git](https://github.com/Fomene/ContactManager.git)
    cd ContactManager
