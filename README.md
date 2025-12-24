@@ -53,6 +53,6 @@ Une application web élégante et performante de gestion de contacts développé
 ```bash
    git clone [https://github.com/Fomene/ContactManager.git](https://github.com/Fomene/ContactManager.git)
    cd ContactManager
-```bash
+```
    git clone [https://github.com/Fomene/ContactManager.git](https://github.com/Fomene/ContactManager.git)
    cd ContactManager
